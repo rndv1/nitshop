@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ООО &quot;НИТ&quot; - Блог |</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href='{% static "nit/assets/img/favicon.png" %}' rel="icon">
+  <link href='{% static "nit/assets/img/apple-touch-icon.png" %}' rel="apple-touch-icon">
+
+     <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href='{% static "nit/assets/css/font-awesome.min.css" %}'>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href='{% static "nit/assets/vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+  <link href='{% static "nit/assets/vendor/bootstrap-icons/bootstrap-icons.css" %}' rel="stylesheet">
+  <link href='{% static "nit/assets/vendor/aos/aos.css" %}' rel="stylesheet">
+  <link href='{% static "nit/assets/vendor/remixicon/remixicon.css" %}' rel="stylesheet">
+  <link href='{% static "nit/assets/vendor/swiper/swiper-bundle.min.css" %}' rel="stylesheet">
+  <link href='{% static "nit/assets/vendor/glightbox/css/glightbox.min.css" %}' rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href='{% static "nit/assets/css/style.css" %}' rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href='{% url "home" %}' class="logo d-flex align-items-center">
+        <img src='{% static "nit/assets/img/logo.png" %}' alt="">
+         <span>НИТ</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href='{% url "home" %}'>Главная</a></li>
+          <li><a href='{% url "blog" %}'>Блог</a></li>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+
+                                        <script language="JavaScript" type="text/javascript">
+function chInt(obj,n)
+{
+q = obj.value;
+if (isNaN(parseInt(q))) obj.value=n;
+else obj.value=parseInt(q);
+}
+function calc()
+{
+if (document.getElementById("type0").value==1)
+  {
+  document.getElementById("type1").style.display="table-row";
+  document.getElementById("type12").style.display="table-row";
+  document.getElementById("type2").style.display="none";
+  itog = document.getElementById("montag").value * document.getElementById("dlina").value;
+  }
+else
+  {
+  document.getElementById("type1").style.display="none";
+  document.getElementById("type12").style.display="none";
+  document.getElementById("type2").style.display="table-row";
+itog = document.getElementById("dlina2").value*2000;
+  }
+  if (document.getElementById("doc").checked==true) itog += 20000;
+  document.getElementById("itog").value=itog;
+}
+function calc2()
+{
+itog = document.getElementById("montag2").value * document.getElementById("port").value;
+  document.getElementById("itog2").value=itog;
+}
+$(function(){
+	$('#type0').trigger('change');
+});
+</script>
+                                    <div class="space sm"></div>
+<hr/>
+<div class="space sm"></div>
+
+<div>
+
+	<h2 align="center">Расчет стоимости монтажных работ</h2>
+
+	<table class='calc' align="center">
+		<tr>
+			<td class="fn" >Тип проекта:</td>
+			<td>
+				<select id='type0' onchange='calc()'><option value=1 selected>Оптоволокно</option><option value=0>Витая пара</option></select>
+			</td>
+		</tr>
+		<tr id='type1'>
+			<td class="fn">Вид монтажных работ:</td>
+			<td>
+				<select id='montag' onchange='calc()'><option selected value='100'>Воздушным способом</option><option value='150'>По канализации</option><option value='70'>Внутри здания</option></select>
+			</td>
+		</tr>
+		<tr id='type12'>
+			<td class="fn">Ориентировочная длина трассы:</td>
+			<td>
+				<input class="inp" type='text' id='dlina' onchange='chInt(this,0); calc()' value=0>
+			</td>
+		</tr>
+		<tr id='type2' style='display: none;'>
+			<td class="fn">Количество портов:</td>
+			<td>
+				<input class="inp" type='text' id='dlina2' onchange='chInt(this,0); calc()' value=0>
+			</td>
+		</tr>
+		<tr>
+			<td class="fn">Необходимо составление проектной документации</td>
+			<td>
+				<input type='checkbox' id='doc' onchange='calc()' class="chb">
+			</td>
+		</tr>
+		<tr>
+			<td class="fn">Расчетная стоимость</td>
+			<td>
+				<input class="inp" type='text' id='itog' readonly="readonly" value=0>
+			</td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td>
+			<input type='button' onchange='calc()' value='Расчитать' class="btn"/></td>
+		</tr>
+	</table>
+
+</div>
+
+<div class="space sm"></div>
+<hr/>
+<div class="space sm"></div>
+
+
+<div>
+
+	<h2 align="center">Расчет стоимости тестирования</h2>
+
+	<table class='calc' align="center">
+		<tr>
+			<td class="fn">Тип проекта:</td>
+			<td>
+				<select id='montag2' onchange='calc2()'><option value=70 selected>Витая пара</option><option value=200>Оптоволокно</option></select>
+			</td>
+		</tr>
+		<tr>
+			<td class="fn">Количество портов:</td>
+			<td>
+				<input class="inp" type='text' id='port' onchange='chInt(this,0); calc2()' value=0>
+			</td>
+		</tr>
+		<tr>
+			<td class="fn">Расчетная стоимость</td>
+			<td>
+				<input class="inp" type='text' id='itog2' readonly="readonly" value=0>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<input type='button' onchange='calc2()' value='Расчитать' class="btn"/>
+			</td>
+		</tr>
+	</table>
+
+</div>								</div>
+
+							</div>
+
+						</div>
+
+						<div class="clearer"></div>
+
+					</div>
+
+
+			</div>
+
+
+
+			<div class="footer">
+
+				<div class="content_block">
+
+					<div class="footer_1">
+
+
+
+
+
+						<div class="clearer"></div>
+
+					</div>
+
+					<div class="footer_2">
+
+						<div class="madeby">
+
+						</div>
+
+						<div class="counters">
+
+
+
+
+</script>
+                            <div  data-aos="fade-up" data-aos-delay="200">
+            <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+
+                <h4>  <p> Для быстрого рассчета стоимости монтажа локальной вычислительной сети (ЛВС) или монтажа волоконно-оптической линии связи (ВОЛС) мы разработали онлайн карькулятор с усредненными значениями стоимости монтажа портов сети. Значения подобраны исходя из средней стоимости монтажа сети с последующей обязательной Сетрификацией (Тестирование) на категорию 5E, 6, 6A, в зависимости от типа кабеля. Хотим заметить, что сейчас на рынке очень много компаний котрые осуществляют монтаж ЛВС, но зачастую сотрудники этих компаний не имеют высшего образования и не владеют базовыми знаниями по монтажу слаботочных систем. Результаты работ- это отсутсвие на выходе положительного заключения по сертификации сети, из-за несоответствия качества выполненых работ эталонам прибора, который поверяется каждый год в специалезированной лаборатории и может дать 100% заключение по качеству тестируемой сети. Ведь не секрет что локальная сеть прошедшая сертификацию на категорию 5E будет стабильно работать на скорости передачи данных от  1 Гб/сек.</p>
+                    <p>Итоговая стоимость монтажных работ рассчитывается после обследования объекта нашим инженером.</p>
+<p>Возможен рассчет по техническому заданию с техническими условями по проекту, если имеются.</p>
+<p>Выезд инженера в пределах Оренбургской области бесплатный.</p> </h4>
+                </div>
+            </div>
+          </div>
+                </div>
+
+              </div><!-- End Tab 1 Content -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+
+          </div>
+          <div class="col-lg-6">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href='{% url "home" %}' class="logo d-flex align-items-center">
+              <img src='{% static "nit/assets/img/logo.png" %}' alt="">
+              <span>ООО "НИТ"</span>
+            </a>
+            <p>Следи за нами в наших социальных сетях!</p>
+            <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" class="vk"><i class="fa fa-vk" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Полезные ссылки</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href='{% url "home" %}'>Главная</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href='{% url "home" %}'>Условия обслуживания</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href='{% url "home" %}'>Политика конфиденциальности</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4></h4>
+            <ul>
+
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Наши контакты</h4>
+            <p>
+             Комсомольская ул., 26 <br>
+              Оренбург, Оренбургская обл., 460000<br>
+              Российская Федерация <br><br>
+              <strong>Номер:</strong> +7 (3532) 430-460<br>
+              <strong>Email:</strong> info@nitshop.ru<br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Муртазин Тимур</span></strong>. Все права защищены
+      </div>
+      <div class="credits">
+
+        Сделано <a href="vk.com/rndv1">Муртазиным Тимуром 17-ПКС-2</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src='{% static "nit/assets/vendor/bootstrap/js/bootstrap.bundle.js" %}'></script>
+  <script src= '{% static "nit/assets/vendor/aos/aos.js" %}'></script>
+  <script src='{% static "nit/assets/vendor/php-email-form/validate.js" %}'></script>
+  <script src= '{% static "nit/assets/vendor/swiper/swiper-bundle.min.js" %}'></script>
+  <script src='{% static "nit/assets/vendor/purecounter/purecounter.js" %}'></script>
+  <script src= '{% static "nit/assets/vendor/isotope-layout/isotope.pkgd.min.js" %}'></script>
+  <script src='{% static "nit/assets/vendor/glightbox/js/glightbox.min.js" %}'></script>
+
+  <!-- Template Main JS File -->
+  <script src= '{% static "nit/assets/js/main.js" %}'></script>
+
+</body>
+
+</html>
